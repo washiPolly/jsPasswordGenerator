@@ -2,11 +2,14 @@
 //praseInt converts String number to Integer
 var pwLength = parseInt(prompt("Please Enter your Password length, must be between 8-128"));
 
-if (pwLength < 8) {
-    alert('Password length must be at least 8 characters');
-    return;
-  }
+while (pwLength < 8 || pwLength > 128) {
+    alert("Password length must be between 8 - 128 characters");
+    pwLength = parseInt(prompt("Please Enter your Password length, must be between 8-128"));
+    
+}
 
+
+if (pwLength > 8 || pwLength < 128) {
 //prompt user lower? store in var
 var pwLower = prompt("Would you like to include Lower Cases? Y/N ");
 //prompt user upper? store in var
@@ -16,11 +19,17 @@ var pwNumber = prompt("Would you like to include Numbers? Y/N ");
 //prompt user symbol? store in var
 var pwSymbol = prompt("Would you like to include Symbols? Y/N ");
 
+
 if (pwLower && pwUpper && pwNumber && pwSymbol === "n"){
-    alert("At Least one charager needs to be present");
-    
+    alert("At Least one selection needs to be present.");
+    pwLower = prompt("Would you like to include Lower Cases? Y/N");
+    var pwUpper = prompt("Would you like to include Upper Cases? Y/N ");
+    var pwNumber = prompt("Would you like to include Numbers? Y/N ");
+    var pwSymbol = prompt("Would you like to include Symbols? Y/N ");
+}
 }
 
+var pwBoxEl = document.querySelector("#pwBox");
 //disply pw document.textContent
 //addEventListener and identify element to display in text box
 console.log(pwLength, pwLower, pwUpper, pwNumber, pwSymbol);
@@ -64,6 +73,11 @@ console.log(getRandomSym());
 
 
 //loop to repeat for length, how to concat?
+// for (var i = 0; i < pwLength; i++) {
+//     var genPw = genPw.push(pwBox);
+// }
+// console.log(genPw);
+
 //create random array
 function getRandomElement(arr){
     var randomIndex = Math.floor(Math.random() * arr.pwLength);
@@ -90,3 +104,4 @@ console.log(getRandomElement);
 // }
 
 // console.log(getRandomLower);
+
