@@ -1,5 +1,6 @@
 //prompt user how many numbers, store in var
 //praseInt converts String number to Integer
+
 var pwLength = parseInt(prompt("Please Enter your Password length, must be between 8-128"));
 
 while (pwLength < 8 || pwLength > 128) {
@@ -34,13 +35,14 @@ var number = pwNumber.toUpperCase();
 var symbol = pwSymbol.toUpperCase();
 console.log(lower);
 console.log(upper);
-
+console.log(number);
+console.log(symbol);
 
 function checkInput() { 
-    if (lower !== "Y" || lower !== "N" || lower == null ||
-        upper !== "Y" || upper !== "N" || upper == null ||
-        number !== "Y" || number !== "N" || number == null ||
-        symbol !== "Y" || symbol !== "N" || symbol == null ) { 
+    if (lower !== "Y" && lower !== "N" || lower == "" ||
+        upper !== "Y" && upper !== "N" || upper == "" ||
+        number !== "Y" && number !== "N" || number == "" ||
+        symbol !== "Y" && symbol !== "N" || symbol == "" ) { 
         
         alert("All Selections must be entered with Y/N. Please Refresh the page and start again \n"); 
         return false; 
@@ -48,68 +50,118 @@ function checkInput() {
 } 
 checkInput();
 
+//use counter to figure out how many times to loop
+// var counter = 0;
+
+//         if (lower == "Y"){
+//             counter++;
+//         }
+//         if (upper == "Y"){
+//             counter++;
+//         }
+//         if (number == "Y"){
+//             counter++;
+//         }
+//         if(symbol == "Y"){
+//             counter++;
+//         } 
+
+// console.log(counter);
 
 
-var pwBoxEl = document.querySelector("#pwBox");
-//disply pw document.textContent
-//addEventListener and identify element to display in text box
-console.log(pwLength, pwLower, pwUpper, pwNumber, pwSymbol);
+// var x = pwLower % counter;
+// var length = ((x) + counter);
+// console.log(x);
 
 
+
+
+
+function genPw(){
 //check which options selected
+var finalPw = "";
+for (var i = 0; i < pwLength; i++) {
+    
 //generate function to get random passwords for each type
 function getRandomLower(){
-    if (pwLower = "y"){
+    if (lower == "Y"){
     return String.fromCharCode(Math.floor(Math.random() *26) + 97); 
     }
 }
 
 function getRandomUpper(){
-    if (pwUpper = "y"){
+    if (upper == "Y"){
         return String.fromCharCode(Math.floor(Math.random() *26) + 65);
     }
 }
 
 function getRandomNum(){
-    if (pwNumber = "y"){
+    if (number == "Y"){
         return (Math.floor(Math.random() *10));
     }
 }
 
 function getRandomSym () {
-    if (pwSymbol = "y"){
+    if (symbol == "Y"){
     // example set of special chars as a string in no particular order
     var s = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
     // generating a random index into the string and extracting the character at that position
     return s.substr(Math.floor(s.length*Math.random()), 1);
     } 
-}
-console.log(getRandomLower());
-console.log(getRandomUpper());
-console.log(getRandomNum());
-console.log(getRandomSym());
-
     
+   
+    
+    
+}
+    
+    console.log(getRandomLower());
+    console.log(getRandomUpper());
+    console.log(getRandomNum());
+    console.log(getRandomSym());
+    
+}
+console.log(finalPw);
+return finalPw;
+
+}
+genPw();
 
 
-//loop to repeat for length, how to concat?
+
+//create random array
+// function getRandomElement(arr){
+//     var randomIndex = Math.floor(Math.random() * arr.pwLength);
+//     var randomElement = arr[randomIndex];
+//         return randomElement;
+        
+// }
+// getRandomElement();
+// console.log(getRandomElement);
+
+
+      
+
+
+// //loop to repeat for length, how to concat?
 // for (var i = 0; i < pwLength; i++) {
-//     var genPw = genPw.push(pwBox);
+//     var genPw = 
+
+//     return genPw;
 // }
 // console.log(genPw);
 
-//create random array
-function getRandomElement(arr){
-    var randomIndex = Math.floor(Math.random() * arr.pwLength);
-    var randomElement = arr[randomIndex];
-        return randomElement;
-        
-}
-
-console.log(getRandomElement);
 
 
-//generate event to listen for click
+
+//disply pw document.textContent
+//var to hold the generated pw
+var pwBoxEl = document.querySelector("#pwBox");
+
+//addEventListener and identify element to display in text box
+document.getElementById("genBtn").addEventListener("click", function(event){
+    event.preventDefault;
+    document.getElementById("pwBox").innerHTML = pwBoxEl;
+  });
 //clipboard
 
 
@@ -124,4 +176,3 @@ console.log(getRandomElement);
 // }
 
 // console.log(getRandomLower);
-
