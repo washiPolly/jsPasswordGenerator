@@ -5,7 +5,6 @@ var pwLength = parseInt(prompt("Please Enter your Password length, must be betwe
 while (pwLength < 8 || pwLength > 128) {
     alert("Password length must be between 8 - 128 characters");
     pwLength = parseInt(prompt("Please Enter your Password length, must be between 8-128"));
-    
 }
 
 
@@ -20,7 +19,7 @@ var pwNumber = prompt("Would you like to include Numbers? Y/N ");
 var pwSymbol = prompt("Would you like to include Symbols? Y/N ");
 
 
-if (pwLower && pwUpper && pwNumber && pwSymbol === "n"){
+while (pwLower && pwUpper && pwNumber && pwSymbol === "n"){
     alert("At Least one selection needs to be present.");
     pwLower = prompt("Would you like to include Lower Cases? Y/N");
     var pwUpper = prompt("Would you like to include Upper Cases? Y/N ");
