@@ -17,23 +17,44 @@ var pwUpper = prompt("Would you like to include Upper Cases? Y/N ");
 var pwNumber = prompt("Would you like to include Numbers? Y/N ");
 //prompt user symbol? store in var
 var pwSymbol = prompt("Would you like to include Symbols? Y/N ");
+}
 
-
-while (pwLower && pwUpper && pwNumber && pwSymbol === "n"){
+while (pwLower && pwUpper && pwNumber && pwSymbol === "N"){
     alert("At Least one selection needs to be present.");
     pwLower = prompt("Would you like to include Lower Cases? Y/N");
-    var pwUpper = prompt("Would you like to include Upper Cases? Y/N ");
-    var pwNumber = prompt("Would you like to include Numbers? Y/N ");
-    var pwSymbol = prompt("Would you like to include Symbols? Y/N ");
+    pwUpper = prompt("Would you like to include Upper Cases? Y/N ");
+    pwNumber = prompt("Would you like to include Numbers? Y/N ");
+    pwSymbol = prompt("Would you like to include Symbols? Y/N ");
 }
-}
+
+//change entries to upper case
+var lower = pwLower.toUpperCase();
+var upper = pwUpper.toUpperCase();
+var number = pwNumber.toUpperCase();
+var symbol = pwSymbol.toUpperCase();
+console.log(lower);
+console.log(upper);
+
+
+function checkInput() { 
+    if (lower !== "Y" || lower !== "N" || lower == null ||
+        upper !== "Y" || upper !== "N" || upper == null ||
+        number !== "Y" || number !== "N" || number == null ||
+        symbol !== "Y" || symbol !== "N" || symbol == null ) { 
+        
+        alert("All Selections must be entered with Y/N. Please Refresh the page and start again \n"); 
+        return false; 
+    }  
+} 
+checkInput();
+
+
 
 var pwBoxEl = document.querySelector("#pwBox");
 //disply pw document.textContent
 //addEventListener and identify element to display in text box
 console.log(pwLength, pwLower, pwUpper, pwNumber, pwSymbol);
 
-//create loops to validate Inputs (number between 8-128 and also if input is all "N")
 
 //check which options selected
 //generate function to get random passwords for each type
