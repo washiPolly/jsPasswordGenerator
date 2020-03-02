@@ -140,6 +140,8 @@ console.log(finalPassword);
 
 //Add event listener
 $("#genBtn").click(function(){
+    finalPassword = "";
+    genPw();
     $("#pwBox.form-control").val(finalPassword);
 
 });
