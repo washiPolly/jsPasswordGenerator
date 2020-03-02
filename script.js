@@ -144,28 +144,17 @@ $("#genBtn").click(function(){
 
 });
 
-//create random array
-// function getRandomElement(arr){
-//     var randomIndex = Math.floor(Math.random() * arr.pwLength);
-//     var randomElement = arr[randomIndex];
-//         return randomElement;
+//copy button
+$("#copyBtn").click (function(){
+var copyText = document.getElementById("pwBox");
+//select text in field
+copyText.select();
+copyText.setSelectionRange(0, 129)
+//copy text
+document.execCommand("copy");
 
-// }
-// getRandomElement();
-// console.log(getRandomElement);
-
-
-
-
-
-// //loop to repeat for length, how to concat?
-// for (var i = 0; i < pwLength; i++) {
-//     var genPw = 
-
-//     return genPw;
-// }
-// console.log(genPw);
-
+alert("Copied to your Clipboard: " + copyText.value);
+});
 
 
 
