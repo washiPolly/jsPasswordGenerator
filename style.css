@@ -1,7 +1,7 @@
 body{
     text-align: center;
     margin: 100px auto;
-    
+    background-image: url(./images/email-pattern.png);
 }
 
 h2{
