@@ -135,8 +135,14 @@ function getRandomSym() {
 
 
 
-console.log( genPw() )
+console.log( genPw());
+console.log(finalPassword);
 
+//Add event listener
+$("#genBtn").click(function(){
+    $("#pwBox.form-control").val(finalPassword);
+
+});
 
 //create random array
 // function getRandomElement(arr){
